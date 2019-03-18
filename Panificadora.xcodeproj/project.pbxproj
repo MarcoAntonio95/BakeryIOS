@@ -13,6 +13,11 @@
 		5741B466223C70080021A6B9 /* Panificadora.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5741B464223C70080021A6B9 /* Panificadora.xcdatamodeld */; };
 		5741B468223C70080021A6B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5741B467223C70080021A6B9 /* Assets.xcassets */; };
 		5741B46B223C70080021A6B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5741B469223C70080021A6B9 /* LaunchScreen.storyboard */; };
+		5741B473223C78EF0021A6B9 /* BakeryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5741B472223C78EF0021A6B9 /* BakeryTableViewController.swift */; };
+		5750653F223C799600162B1E /* BakeryDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5750653E223C799600162B1E /* BakeryDAO.swift */; };
+		5797D3C322404BA40071220A /* DishesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5797D3C222404BA40071220A /* DishesTableViewController.swift */; };
+		5797D3C522404BDE0071220A /* AddBakeryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5797D3C422404BDE0071220A /* AddBakeryViewController.swift */; };
+		57F82F8A22404A2A00056DC0 /* AddDishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F82F8922404A2A00056DC0 /* AddDishViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		5741B467223C70080021A6B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5741B46A223C70080021A6B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5741B46C223C70080021A6B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5741B472223C78EF0021A6B9 /* BakeryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakeryTableViewController.swift; sourceTree = "<group>"; };
+		5750653E223C799600162B1E /* BakeryDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakeryDAO.swift; sourceTree = "<group>"; };
+		5797D3C222404BA40071220A /* DishesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesTableViewController.swift; sourceTree = "<group>"; };
+		5797D3C422404BDE0071220A /* AddBakeryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBakeryViewController.swift; sourceTree = "<group>"; };
+		57F82F8922404A2A00056DC0 /* AddDishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDishViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +73,11 @@
 				5741B469223C70080021A6B9 /* LaunchScreen.storyboard */,
 				5741B46C223C70080021A6B9 /* Info.plist */,
 				5741B464223C70080021A6B9 /* Panificadora.xcdatamodeld */,
+				5741B472223C78EF0021A6B9 /* BakeryTableViewController.swift */,
+				5750653E223C799600162B1E /* BakeryDAO.swift */,
+				57F82F8922404A2A00056DC0 /* AddDishViewController.swift */,
+				5797D3C222404BA40071220A /* DishesTableViewController.swift */,
+				5797D3C422404BDE0071220A /* AddBakeryViewController.swift */,
 			);
 			path = Panificadora;
 			sourceTree = "<group>";
@@ -138,9 +153,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5797D3C322404BA40071220A /* DishesTableViewController.swift in Sources */,
 				5741B460223C70080021A6B9 /* ViewController.swift in Sources */,
+				5750653F223C799600162B1E /* BakeryDAO.swift in Sources */,
 				5741B45E223C70080021A6B9 /* AppDelegate.swift in Sources */,
 				5741B466223C70080021A6B9 /* Panificadora.xcdatamodeld in Sources */,
+				57F82F8A22404A2A00056DC0 /* AddDishViewController.swift in Sources */,
+				5797D3C522404BDE0071220A /* AddBakeryViewController.swift in Sources */,
+				5741B473223C78EF0021A6B9 /* BakeryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
