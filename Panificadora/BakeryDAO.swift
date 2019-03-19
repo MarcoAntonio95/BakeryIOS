@@ -10,92 +10,84 @@ import Foundation
 import CoreData
 
 class BakeryDAO {
-    let bakery:Bakery = Bakery()
-    let bakeries:[Bakery] = [Bakery()]
-    let dish:Dish = Dish()
-    let addrres:Address = Address()
-    let dishes:[Dish] = [Dish()]
+    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
-    
-    
+    var bake:[Bakery] = [Bakery()]
+    var dishs:[Dish] = [Dish()]
     
     func readBakerys() -> [Bakery] {
         let requisition : NSFetchRequest<Bakery> = Bakery.fetchRequest()
-            do{
-                let bakeries = try context.fetch(requisition)
-            }catch{
-                print("Error trying load bakeries: \(error)")
-            }
-        return bakeries
+        do{
+            let bakeries = try context.fetch(requisition)
+            bake = bakeries
+        }catch{
+            print("Error trying load bakeries: \(error)")
+        }
+        return bake
     }
     
     func addBakery(){
-        let bakery = Bakery(context: context)
-            do{
-                try context.save()
-            } catch{
-                print("Error trying save bakery: \(error)")
+        let _ = Bakery(context: context)
+        do{
+            try context.save()
+        } catch{
+            print("Error trying save bakery: \(error)")
+        }
     }
+    
+    func addDish(){
+        let di = Dish(context: context)
+        do{
+            try context.save()
+        } catch{
+            print("Error trying save dish: \(error)")
+        }
     }
-        func addDish(){
-            
+    
+    func readDishes() -> [Dish] {
+        let requisitionRD : NSFetchRequest<Dish> = Dish.fetchRequest()
+        do{
+            let dishes = try context.fetch(requisitionRD)
+            dishs = dishes
+        }catch{
+            print("Error trying load dishes: \(error)")
         }
+        return dishs
+    }
+    
+    
+    func editBakery(){
         
-        func editBakery(){
-            
-        }
+    }
+    
+    func deleteBakery(){
         
-        func deleteBakery(){
-            
-        }
-        
-        func firstAdd(){
-            
-        }
+    }
+//
+//    func firstAdd(){
+//        var di:Dish = Dish()
+//        var ad:Address = Address()
+//
+//        var ds:[Dish] = [Dish()]
+//
+//        di.name = "AA"
+//        di.price = 10.0
+//        di.calories = 13.1
+//
+//        ad.street = "R. aa"
+//        ad.city = "Curitiba"
+//        ad.complement = "none"
+//        ad.neighborhood = "Batel"
+//        ad.number = 100
+//        print("Criou ate aqui")
+//        var ba:Bakery = Bakery()
+//        ba.name = "Padoca"
+//        ba.owner = "Marco"
+//        ba.id = 1
+//        di.append(dish)
+//        bakery.address = addrres
+//    }
+    
 }
 
-
-
-
-
-//override func viewDidLoad() {
-//    super.viewDidLoad()
-//    // Do any additional setup after loading the view, typically from a nib.
-//    
-//    //create
-//    let pessoa = Pessoa(context: contexto)
-//    pessoa.nome = "Craudéte de Souza Borja"
-//    
-//    do{
-//        try contexto.save()
-//    } catch{
-//        print("Erro ao salvar o contexto: \(error)")
-//        
-//        //read
-//        //            var pessoas:[Pessoa]!
-//        //            let requisicao : NSFetchRequest<Pessoa> = Pessoa.fetchRequest()
-//        //
-//        //            do{
-//        //           pessoas = try contexto.fetch(requisicao)
-//        //                print(pessoas)
-//        //            } catch{
-//        //            print("Erro ao ler o contexto: \(error)")
-//        //            }
-//        //
-//        //
-//        //read with filters
-//        //https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Predicates/Articles/pSyntax.html
-//        var pessoas2:[Pessoa]!
-//        let requisicao2 : NSFetchRequest<Pessoa> = Pessoa.fetchRequest()
-//        requisicao2.predicate = NSPredicate(format: "nome LIKE 'crau*'")
-//        do{
-//            pessoas2 = try contexto.fetch(requisicao2)
-//            print(pessoas2)
-//        } catch{
-//            print("Erro ao ler o contexto: \(error)")
-//        }
-//    }
-//    
-//}
 

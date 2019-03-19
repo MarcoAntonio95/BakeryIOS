@@ -9,10 +9,11 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    var DAO:BakeryDAO = BakeryDAO()
+    var bakery:Bakery = Bakery()
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+       
     }
 
 

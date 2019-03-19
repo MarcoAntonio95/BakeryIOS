@@ -4,11 +4,13 @@
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="complement" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="neighborhood" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="number" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="street" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="zip_code_cep" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="bakery" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bakery" inverseName="address" inverseEntity="Bakery" syncable="YES"/>
     </entity>
     <entity name="Bakery" representedClassName="Bakery" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="owner" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="site" optional="YES" attributeType="String" syncable="YES"/>
@@ -16,14 +18,14 @@
         <relationship name="menu" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Dish" inverseName="bakery" inverseEntity="Dish" syncable="YES"/>
     </entity>
     <entity name="Dish" representedClassName="Dish" syncable="YES" codeGenerationType="class">
-        <attribute name="calories" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="calories" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="bakery" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bakery" inverseName="menu" inverseEntity="Bakery" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Address" positionX="-132.23828125" positionY="171.453125" width="128" height="135"/>
-        <element name="Bakery" positionX="-510.7890625" positionY="201.43359375" width="128" height="120"/>
+        <element name="Address" positionX="-132.23828125" positionY="171.453125" width="128" height="150"/>
+        <element name="Bakery" positionX="-510.7890625" positionY="201.43359375" width="128" height="135"/>
         <element name="Dish" positionX="-283.13671875" positionY="-37.375" width="128" height="105"/>
     </elements>
 </model>
