@@ -9,8 +9,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var DAO:BakeryDAO = BakeryDAO()
-    var bakery:Bakery = Bakery()
     override func viewDidLoad() {
         super.viewDidLoad()
        

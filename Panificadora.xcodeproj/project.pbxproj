@@ -15,9 +15,11 @@
 		5741B46B223C70080021A6B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5741B469223C70080021A6B9 /* LaunchScreen.storyboard */; };
 		5741B473223C78EF0021A6B9 /* BakeryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5741B472223C78EF0021A6B9 /* BakeryTableViewController.swift */; };
 		5750653F223C799600162B1E /* BakeryDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5750653E223C799600162B1E /* BakeryDAO.swift */; };
+		5779914B2243081100439B74 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5779914A2243081100439B74 /* MenuTableViewController.swift */; };
 		5797D3C322404BA40071220A /* DishesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5797D3C222404BA40071220A /* DishesTableViewController.swift */; };
 		5797D3C522404BDE0071220A /* AddBakeryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5797D3C422404BDE0071220A /* AddBakeryViewController.swift */; };
 		57F82F8A22404A2A00056DC0 /* AddDishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F82F8922404A2A00056DC0 /* AddDishViewController.swift */; };
+		57FE8482224302B100FC758D /* AddAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FE8481224302B100FC758D /* AddAddressViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,9 +33,11 @@
 		5741B46C223C70080021A6B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5741B472223C78EF0021A6B9 /* BakeryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakeryTableViewController.swift; sourceTree = "<group>"; };
 		5750653E223C799600162B1E /* BakeryDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakeryDAO.swift; sourceTree = "<group>"; };
+		5779914A2243081100439B74 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		5797D3C222404BA40071220A /* DishesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesTableViewController.swift; sourceTree = "<group>"; };
 		5797D3C422404BDE0071220A /* AddBakeryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBakeryViewController.swift; sourceTree = "<group>"; };
 		57F82F8922404A2A00056DC0 /* AddDishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDishViewController.swift; sourceTree = "<group>"; };
+		57FE8481224302B100FC758D /* AddAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,8 @@
 				57F82F8922404A2A00056DC0 /* AddDishViewController.swift */,
 				5797D3C222404BA40071220A /* DishesTableViewController.swift */,
 				5797D3C422404BDE0071220A /* AddBakeryViewController.swift */,
+				57FE8481224302B100FC758D /* AddAddressViewController.swift */,
+				5779914A2243081100439B74 /* MenuTableViewController.swift */,
 			);
 			path = Panificadora;
 			sourceTree = "<group>";
@@ -155,6 +161,8 @@
 			files = (
 				5797D3C322404BA40071220A /* DishesTableViewController.swift in Sources */,
 				5741B460223C70080021A6B9 /* ViewController.swift in Sources */,
+				5779914B2243081100439B74 /* MenuTableViewController.swift in Sources */,
+				57FE8482224302B100FC758D /* AddAddressViewController.swift in Sources */,
 				5750653F223C799600162B1E /* BakeryDAO.swift in Sources */,
 				5741B45E223C70080021A6B9 /* AppDelegate.swift in Sources */,
 				5741B466223C70080021A6B9 /* Panificadora.xcdatamodeld in Sources */,

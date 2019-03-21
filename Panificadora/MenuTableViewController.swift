@@ -1,25 +1,27 @@
 //
-//  DishesTableViewController.swift
+//  MenuTableViewController.swift
 //  Panificadora
 //
-//  Created by ALUNO on 18/03/19.
+//  Created by ALUNO on 20/03/19.
 //  Copyright © 2019 ALUNO. All rights reserved.
 //
 
 import UIKit
 
-class DishesTableViewController: UITableViewController {
+class MenuTableViewController: UITableViewController {
     var bakeryDAO:BakeryDAO = BakeryDAO()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        do{
-//            try bakeryDAO.readDishes()
-//        } catch{
-//            print("Error trying read dishes: \(error)")
-//        }
+        do{
+            try bakeryDAO.readMenu()
+        } catch{
+            print("Error trying read menu: \(error)")
+        }
     }
 
+    
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -29,26 +31,19 @@ class DishesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-       return bakeryDAO.readDishes().count
+        return bakeryDAO.readMenu().count
     }
 
-  
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "dish", for: indexPath)
-        cell.textLabel?.text = bakeryDAO.readDishes()[indexPath.row].name
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
+        // Configure the cell...
+
         return cell
     }
-  
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        do{
-            try bakeryDAO.readDishes()
-        } catch{
-            print("Error trying read dishes: \(error)")
-        }
-    }
-    
-    
+    */
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

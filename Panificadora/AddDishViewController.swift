@@ -24,12 +24,8 @@ let context = (UIApplication.shared.delegate as! AppDelegate).persistentContaine
         let calories:Double = Double(caloriesTF.text!)!
         let price:Double = Double(priceTF.text!)!
         
-        let dish:Dish = Dish(context: context)
-        dish.name = name
-        dish.price = price
-        dish.calories = calories
-        
-        bakeryDAO.addDish()
+        bakeryDAO.addDish(name,price, calories)
         self.navigationController?.popViewController(animated: true)
+       
     }
 }

@@ -10,6 +10,7 @@ import UIKit
 
 class BakeryTableViewController: UITableViewController {
     var bakeryDAO:BakeryDAO = BakeryDAO()
+
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -18,12 +19,6 @@ class BakeryTableViewController: UITableViewController {
         } catch{
             print("MEAJUDA: \(error)")
         }
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source

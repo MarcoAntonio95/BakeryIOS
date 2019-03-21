@@ -14,7 +14,8 @@ class BakeryDAO {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var bake:[Bakery] = [Bakery()]
     var dishs:[Dish] = [Dish()]
-    
+    var menu:[Dish] = [Dish()]
+
     func readBakerys() -> [Bakery] {
         let requisition : NSFetchRequest<Bakery> = Bakery.fetchRequest()
         do{
@@ -35,8 +36,11 @@ class BakeryDAO {
         }
     }
     
-    func addDish(){
-        let di = Dish(context: context)
+    func addDish(_ name:String, _ price:Double, _ calories:Double){
+        let dish:Dish = Dish(context: context)
+        dish.name = name
+        dish.price = price
+        dish.calories = calories
         do{
             try context.save()
         } catch{
@@ -55,6 +59,21 @@ class BakeryDAO {
         return dishs
     }
     
+    func saveMenu(){
+        
+    }
+    
+    func readMenu() -> [Dish] {
+        let requisitionRM : NSFetchRequest<Dish> = Dish.fetchRequest()
+        do{
+            let dishesSelected = try context.fetch(requisitionRM)
+            menu = dishesSelected
+        }catch{
+            print("Error trying load menu: \(error)")
+        }
+        return menu
+    }
+    
     
     func editBakery(){
         
@@ -63,30 +82,19 @@ class BakeryDAO {
     func deleteBakery(){
         
     }
-//
-//    func firstAdd(){
-//        var di:Dish = Dish()
-//        var ad:Address = Address()
-//
-//        var ds:[Dish] = [Dish()]
-//
-//        di.name = "AA"
-//        di.price = 10.0
-//        di.calories = 13.1
-//
-//        ad.street = "R. aa"
-//        ad.city = "Curitiba"
-//        ad.complement = "none"
-//        ad.neighborhood = "Batel"
-//        ad.number = 100
-//        print("Criou ate aqui")
-//        var ba:Bakery = Bakery()
-//        ba.name = "Padoca"
-//        ba.owner = "Marco"
-//        ba.id = 1
-//        di.append(dish)
-//        bakery.address = addrres
-//    }
+    
+    func addAddress(_ street:String,_ number:Int16,_ city:String,_ code:String){
+        let address:Address = Address(context: context)
+        address.street = street
+        address.number = Int16(number)
+        address.city = city
+        address.zip_code_cep = code
+        do{
+            try context.save()
+        } catch{
+            print("Error trying save dish: \(error)")
+        }
+    }
     
 }
 
