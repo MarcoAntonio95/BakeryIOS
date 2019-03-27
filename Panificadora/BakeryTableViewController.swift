@@ -10,14 +10,18 @@ import UIKit
 
 class BakeryTableViewController: UITableViewController {
     var bakeryDAO:BakeryDAO = BakeryDAO()
-
+    var bakeries:[Bakery] = []
+    var bakery = Bakery()
+    var name:String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        do{
-            try bakeryDAO.readBakerys()
-        } catch{
-            print("MEAJUDA: \(error)")
+        bakeries = bakeryDAO.readBakerys()
+        
+        for n in 0...bakeries.count{
+            if n < bakeries.count-1{
+                 print(bakeries[n].name)
+            }
         }
     }
 
@@ -30,18 +34,29 @@ class BakeryTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return bakeryDAO.readBakerys().count
+        return bakeries.count
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "bakery", for: indexPath)
-
-        cell.textLabel?.text = bakeryDAO.readBakerys()[indexPath.row].name
+        cell.textLabel?.text = bakeries[indexPath.row].name
 
         return cell
     }
- 
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        name = bakeries[indexPath.row].name!
+        bakery = bakeries[indexPath.row]
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("\(bakery)")
+        if segue.identifier == "segueDetail"{
+            let next = segue.destination as! DetailViewController
+            next.name = name
+            next.bakery = bakery
+        }
 
     /*
     // Override to support conditional editing of the table view.
@@ -88,4 +103,5 @@ class BakeryTableViewController: UITableViewController {
     }
     */
 
+}
 }

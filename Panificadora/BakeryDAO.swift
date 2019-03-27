@@ -12,35 +12,58 @@ import CoreData
 class BakeryDAO {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    var bake:[Bakery] = [Bakery()]
-    var dishs:[Dish] = [Dish()]
-    var menu:[Dish] = [Dish()]
-
+    var bakeries:[Bakery] = []
+    var dishes:[Dish] = []
+    static var menu:[Dish] = []
+    var adresses:[Address] = []
+    var address:Address?
+    var menuSet:NSSet = []
+    
+    
     func readBakerys() -> [Bakery] {
-        let requisition : NSFetchRequest<Bakery> = Bakery.fetchRequest()
+        let requisition = NSFetchRequest<NSFetchRequestResult>(entityName: "Bakery")
         do{
-            let bakeries = try context.fetch(requisition)
-            bake = bakeries
+            bakeries = try context.fetch(requisition) as! [Bakery]
         }catch{
             print("Error trying load bakeries: \(error)")
         }
-        return bake
+        return bakeries
     }
-    
-    func addBakery(){
-        let _ = Bakery(context: context)
-        do{
-            try context.save()
-        } catch{
-            print("Error trying save bakery: \(error)")
+
+    func addBakery(_ name:String, _ owner:String, _ site:String, _ street:String, _ number:Int64){
+     
+        print("TA AQUI \(name) \(owner) \(site)")
+        if BakeryDAO.menu.count > 0 && name != "" && owner != "" && site != "" {
+           // print("TA DENTRO")
+              let bakeryAddress:Address = getAddress(street, number)
+            
+            if bakeryAddress.street != ""{
+            //    print("Encontrou endereco")
+                let bakery = NSEntityDescription.insertNewObject(forEntityName: "Bakery",
+                                                                 into: context)
+                bakery.setValue(name, forKey:"name")
+                bakery.setValue(menuSet, forKey: "menu")
+                bakery.setValue(owner, forKey:"owner")
+                bakery.setValue(site, forKey:"site")
+                bakery.setValue(bakeryAddress, forKey: "address")
+                do{
+                    try context.save()
+                } catch{
+                    print("Error trying save bakery: \(error)")
+                }
+            }
+            
+            
         }
+       
     }
     
     func addDish(_ name:String, _ price:Double, _ calories:Double){
-        let dish:Dish = Dish(context: context)
-        dish.name = name
-        dish.price = price
-        dish.calories = calories
+        let entity = NSEntityDescription.insertNewObject(forEntityName: "Dish",
+                                                         into: context)
+        entity.setValue(name, forKey:"name")
+        entity.setValue(price, forKey:"price")
+        entity.setValue(calories, forKey:"calories")
         do{
             try context.save()
         } catch{
@@ -49,51 +72,68 @@ class BakeryDAO {
     }
     
     func readDishes() -> [Dish] {
-        let requisitionRD : NSFetchRequest<Dish> = Dish.fetchRequest()
+        let requisitionRD = NSFetchRequest<NSFetchRequestResult>(entityName: "Dish")
         do{
-            let dishes = try context.fetch(requisitionRD)
-            dishs = dishes
+            dishes = try! context.fetch(requisitionRD) as! [Dish]
         }catch{
             print("Error trying load dishes: \(error)")
         }
-        return dishs
+        return dishes
     }
-    
-    func saveMenu(){
-        
-    }
-    
-    func readMenu() -> [Dish] {
-        let requisitionRM : NSFetchRequest<Dish> = Dish.fetchRequest()
-        do{
-            let dishesSelected = try context.fetch(requisitionRM)
-            menu = dishesSelected
-        }catch{
-            print("Error trying load menu: \(error)")
+
+        func saveMenu(_ dish:Dish){
+            BakeryDAO.menu.append(dish)
+            menuSet = NSSet(array: BakeryDAO.menu)
         }
-        return menu
+
+    func resetMenu() {
+     BakeryDAO.menu.removeAll()
     }
-    
-    
-    func editBakery(){
+//
+//    func editBakery(){
+//        
+//    }
+//    
+//    func deleteBakery(){
+//        
+//    }
+//    
+    func addAddress(_ street:String,_ number:Int64,_ city:String,_ code:String){
+
+        let address = NSEntityDescription.insertNewObject(forEntityName: "Address",
+                                                             into: context)
+        address.setValue(street, forKey: "street")
+        address.setValue(number, forKey: "number")
+        address.setValue(city, forKey: "city")
+        address.setValue(code, forKey: "zip_code_cep")
         
-    }
-    
-    func deleteBakery(){
-        
-    }
-    
-    func addAddress(_ street:String,_ number:Int16,_ city:String,_ code:String){
-        let address:Address = Address(context: context)
-        address.street = street
-        address.number = Int16(number)
-        address.city = city
-        address.zip_code_cep = code
         do{
             try context.save()
         } catch{
             print("Error trying save dish: \(error)")
         }
+    }
+    
+    func getAddress(_ street:String, _ number:Int64) -> Address{
+        let requisitionRD = NSFetchRequest<NSFetchRequestResult>(entityName: "Address")
+        requisitionRD.fetchLimit = 1
+        requisitionRD.returnsObjectsAsFaults = false
+//        let predicate1:NSPredicate = NSPredicate(format: "street = %@", street)
+//       let predicate:NSPredicate  = NSPredicate(format: "street = %@", street)
+//       requisitionRD.predicate = predicate
+    
+        do{
+            adresses = try! context.fetch(requisitionRD) as! [Address]
+            address = adresses[0]
+//            address = try! context.fetch(requisitionRD) as! Address
+//        //actualAddress = try! context.fetch(requisitionRD) as! Address
+//        actualAddress = adresses[0]
+        
+            
+        }catch{
+            print("Error trying load dishes: \(error)")
+        }
+         return address!
     }
     
 }

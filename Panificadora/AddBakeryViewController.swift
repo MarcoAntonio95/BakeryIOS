@@ -9,17 +9,28 @@
 import UIKit
 
 class AddBakeryViewController: UIViewController {
+    @IBOutlet weak var nameTF: UITextField!
+    @IBOutlet weak var siteTF: UITextField!
+    @IBOutlet weak var ownerTF: UITextField!
+
+    @IBOutlet weak var photoUI: UIImageView!
+    let imagePicker = UIImagePickerController()
+    
+    
     var bakeryDAO:BakeryDAO = BakeryDAO()
+    
     var street:String = "" {
         didSet {
             if street != "" {
-            addressBT.setTitle(street, for: .normal)
-            }
-        }
-    }
-    var city:String = ""
-    var number:Int16 = 0
-    var code:String = ""
+            addressBT.setTitle("Edit Address", for: .normal)
+            }}}
+    var number:Int64 = 0
+    var name:String = String()
+    var owner:String = String()
+    var site:String = String()
+    var city:String = String()
+    var code:String = String()
+    var dataImg:Data?
     
     @IBOutlet weak var addressBT: UIButton!
     
@@ -34,5 +45,15 @@ class AddBakeryViewController: UIViewController {
             next.owner = self
         }
     
+    }
+    
+    @IBAction func saveBakery(_ sender: Any) {
+    dataImg = photoUI?.image?.pngData()
+        
+    name = nameTF.text!
+    owner = ownerTF.text!
+    site = siteTF.text!
+
+    bakeryDAO.addBakery(name,owner,site,street,number)
     }
 }

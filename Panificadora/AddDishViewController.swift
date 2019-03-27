@@ -9,7 +9,7 @@
 import UIKit
 
 class AddDishViewController: UIViewController {
-let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var caloriesTF: UITextField!
     @IBOutlet weak var priceTF: UITextField!
@@ -17,6 +17,7 @@ let context = (UIApplication.shared.delegate as! AppDelegate).persistentContaine
     
     override func viewDidLoad() {
         super.viewDidLoad()
+      
     }
 
     @IBAction func addDish(_ sender: Any) {
@@ -26,6 +27,5 @@ let context = (UIApplication.shared.delegate as! AppDelegate).persistentContaine
         
         bakeryDAO.addDish(name,price, calories)
         self.navigationController?.popViewController(animated: true)
-       
     }
 }

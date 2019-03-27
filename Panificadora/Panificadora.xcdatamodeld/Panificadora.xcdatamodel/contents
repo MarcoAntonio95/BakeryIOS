@@ -2,28 +2,28 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18D109" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Address" representedClassName="Address" syncable="YES" codeGenerationType="class">
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="number" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="number" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="street" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="zip_code_cep" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="bakery" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bakery" inverseName="address" inverseEntity="Bakery" syncable="YES"/>
     </entity>
     <entity name="Bakery" representedClassName="Bakery" syncable="YES" codeGenerationType="class">
-        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="owner" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photo" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="site" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="address" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Address" inverseName="bakery" inverseEntity="Address" syncable="YES"/>
-        <relationship name="menu" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Dish" inverseName="bakery" inverseEntity="Dish" syncable="YES"/>
+        <relationship name="menu" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Dish" syncable="YES"/>
     </entity>
     <entity name="Dish" representedClassName="Dish" syncable="YES" codeGenerationType="class">
         <attribute name="calories" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="bakery" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bakery" inverseName="menu" inverseEntity="Bakery" syncable="YES"/>
+        <relationship name="bakery" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bakery" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Address" positionX="-132.23828125" positionY="171.453125" width="128" height="118"/>
+        <element name="Address" positionX="-105.046875" positionY="186.33984375" width="128" height="118"/>
         <element name="Bakery" positionX="-510.7890625" positionY="201.43359375" width="128" height="135"/>
-        <element name="Dish" positionX="-283.13671875" positionY="-37.375" width="128" height="105"/>
+        <element name="Dish" positionX="-254.41015625" positionY="495.109375" width="128" height="103"/>
     </elements>
 </model>

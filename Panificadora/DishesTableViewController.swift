@@ -10,44 +10,45 @@ import UIKit
 
 class DishesTableViewController: UITableViewController {
     var bakeryDAO:BakeryDAO = BakeryDAO()
+    var owner : MenuTableViewController?
+    var dishes: [Dish] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        do{
-//            try bakeryDAO.readDishes()
-//        } catch{
-//            print("Error trying read dishes: \(error)")
-//        }
+     
     }
 
-    // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-       return bakeryDAO.readDishes().count
+    
+       return dishes.count
     }
 
   
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dish", for: indexPath)
-        cell.textLabel?.text = bakeryDAO.readDishes()[indexPath.row].name
+        cell.textLabel?.text = dishes[indexPath.row].name
         return cell
     }
   
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        do{
-            try bakeryDAO.readDishes()
-        } catch{
-            print("Error trying read dishes: \(error)")
-        }
+        dishes = bakeryDAO.readDishes()
+        self.tableView.reloadData()
     }
+
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//       var item:Dish = Dish()
+//       item = dishes[indexPath.row]
+
+        bakeryDAO.saveMenu(dishes[indexPath.row])
+        self.navigationController?.popViewController(animated: true)
+    }
     
     /*
     // Override to support conditional editing of the table view.

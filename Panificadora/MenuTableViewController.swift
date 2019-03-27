@@ -9,29 +9,34 @@
 import UIKit
 
 class MenuTableViewController: UITableViewController {
-    var bakeryDAO:BakeryDAO = BakeryDAO()
+    var menu:[Dish] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        do{
-            try bakeryDAO.readMenu()
-        } catch{
-            print("Error trying read menu: \(error)")
-        }
+       
     }
-
-    
-    
-    // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "menuItem", for: indexPath)
+        if menu.count > 0 {
+            cell.textLabel?.text = menu[indexPath.row].name
+        }
+        return cell
+    } 
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return bakeryDAO.readMenu().count
+        return menu.count
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+         menu = BakeryDAO.menu
+        self.tableView.reloadData()
     }
 
     /*
@@ -90,3 +95,4 @@ class MenuTableViewController: UITableViewController {
     */
 
 }
+

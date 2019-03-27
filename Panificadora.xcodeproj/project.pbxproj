@@ -14,10 +14,19 @@
 		5741B468223C70080021A6B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5741B467223C70080021A6B9 /* Assets.xcassets */; };
 		5741B46B223C70080021A6B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5741B469223C70080021A6B9 /* LaunchScreen.storyboard */; };
 		5741B473223C78EF0021A6B9 /* BakeryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5741B472223C78EF0021A6B9 /* BakeryTableViewController.swift */; };
+		5745957D2249AE9300783EFE /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5745957C2249AE9300783EFE /* MapViewController.swift */; };
+		57472594224BEDD00062EF42 /* SiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57472593224BEDD00062EF42 /* SiteViewController.swift */; };
+		57472597224BFDA30062EF42 /* breadIc.png in Resources */ = {isa = PBXBuildFile; fileRef = 57472595224BFDA20062EF42 /* breadIc.png */; };
+		57472598224BFDA30062EF42 /* mapIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 57472596224BFDA20062EF42 /* mapIcon.png */; };
 		5750653F223C799600162B1E /* BakeryDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5750653E223C799600162B1E /* BakeryDAO.swift */; };
 		5779914B2243081100439B74 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5779914A2243081100439B74 /* MenuTableViewController.swift */; };
 		5797D3C322404BA40071220A /* DishesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5797D3C222404BA40071220A /* DishesTableViewController.swift */; };
 		5797D3C522404BDE0071220A /* AddBakeryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5797D3C422404BDE0071220A /* AddBakeryViewController.swift */; };
+		57991B7422498457001FD45C /* bakeicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 57991B7322498456001FD45C /* bakeicon.png */; };
+		57991B7622498622001FD45C /* appIcon120.png in Resources */ = {isa = PBXBuildFile; fileRef = 57991B7522498622001FD45C /* appIcon120.png */; };
+		57991B78224986B5001FD45C /* appIcon180.png in Resources */ = {isa = PBXBuildFile; fileRef = 57991B77224986B5001FD45C /* appIcon180.png */; };
+		57991B7A2249880D001FD45C /* newBake.png in Resources */ = {isa = PBXBuildFile; fileRef = 57991B792249880D001FD45C /* newBake.png */; };
+		57991B7C2249A779001FD45C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57991B7B2249A779001FD45C /* DetailViewController.swift */; };
 		57F82F8A22404A2A00056DC0 /* AddDishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F82F8922404A2A00056DC0 /* AddDishViewController.swift */; };
 		57FE8482224302B100FC758D /* AddAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FE8481224302B100FC758D /* AddAddressViewController.swift */; };
 /* End PBXBuildFile section */
@@ -32,10 +41,19 @@
 		5741B46A223C70080021A6B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5741B46C223C70080021A6B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5741B472223C78EF0021A6B9 /* BakeryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakeryTableViewController.swift; sourceTree = "<group>"; };
+		5745957C2249AE9300783EFE /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		57472593224BEDD00062EF42 /* SiteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteViewController.swift; sourceTree = "<group>"; };
+		57472595224BFDA20062EF42 /* breadIc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = breadIc.png; sourceTree = "<group>"; };
+		57472596224BFDA20062EF42 /* mapIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapIcon.png; sourceTree = "<group>"; };
 		5750653E223C799600162B1E /* BakeryDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BakeryDAO.swift; sourceTree = "<group>"; };
 		5779914A2243081100439B74 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		5797D3C222404BA40071220A /* DishesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesTableViewController.swift; sourceTree = "<group>"; };
 		5797D3C422404BDE0071220A /* AddBakeryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBakeryViewController.swift; sourceTree = "<group>"; };
+		57991B7322498456001FD45C /* bakeicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bakeicon.png; sourceTree = "<group>"; };
+		57991B7522498622001FD45C /* appIcon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon120.png; sourceTree = "<group>"; };
+		57991B77224986B5001FD45C /* appIcon180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appIcon180.png; sourceTree = "<group>"; };
+		57991B792249880D001FD45C /* newBake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newBake.png; sourceTree = "<group>"; };
+		57991B7B2249A779001FD45C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		57F82F8922404A2A00056DC0 /* AddDishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDishViewController.swift; sourceTree = "<group>"; };
 		57FE8481224302B100FC758D /* AddAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -51,6 +69,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5739510D2249622E00ABB74F /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				57472595224BFDA20062EF42 /* breadIc.png */,
+				57472596224BFDA20062EF42 /* mapIcon.png */,
+				57991B7522498622001FD45C /* appIcon120.png */,
+				57991B792249880D001FD45C /* newBake.png */,
+				57991B77224986B5001FD45C /* appIcon180.png */,
+				57991B7322498456001FD45C /* bakeicon.png */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
 		5741B451223C70080021A6B9 = {
 			isa = PBXGroup;
 			children = (
@@ -70,20 +101,24 @@
 		5741B45C223C70080021A6B9 /* Panificadora */ = {
 			isa = PBXGroup;
 			children = (
+				5739510D2249622E00ABB74F /* assets */,
 				5741B45D223C70080021A6B9 /* AppDelegate.swift */,
 				5741B45F223C70080021A6B9 /* ViewController.swift */,
+				57991B7B2249A779001FD45C /* DetailViewController.swift */,
 				5741B461223C70080021A6B9 /* Main.storyboard */,
 				5741B467223C70080021A6B9 /* Assets.xcassets */,
 				5741B469223C70080021A6B9 /* LaunchScreen.storyboard */,
 				5741B46C223C70080021A6B9 /* Info.plist */,
 				5741B464223C70080021A6B9 /* Panificadora.xcdatamodeld */,
 				5741B472223C78EF0021A6B9 /* BakeryTableViewController.swift */,
+				5745957C2249AE9300783EFE /* MapViewController.swift */,
 				5750653E223C799600162B1E /* BakeryDAO.swift */,
 				57F82F8922404A2A00056DC0 /* AddDishViewController.swift */,
 				5797D3C222404BA40071220A /* DishesTableViewController.swift */,
 				5797D3C422404BDE0071220A /* AddBakeryViewController.swift */,
-				57FE8481224302B100FC758D /* AddAddressViewController.swift */,
 				5779914A2243081100439B74 /* MenuTableViewController.swift */,
+				57FE8481224302B100FC758D /* AddAddressViewController.swift */,
+				57472593224BEDD00062EF42 /* SiteViewController.swift */,
 			);
 			path = Panificadora;
 			sourceTree = "<group>";
@@ -146,6 +181,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57472597224BFDA30062EF42 /* breadIc.png in Resources */,
+				57991B78224986B5001FD45C /* appIcon180.png in Resources */,
+				57991B7A2249880D001FD45C /* newBake.png in Resources */,
+				57991B7622498622001FD45C /* appIcon120.png in Resources */,
+				57991B7422498457001FD45C /* bakeicon.png in Resources */,
+				57472598224BFDA30062EF42 /* mapIcon.png in Resources */,
 				5741B46B223C70080021A6B9 /* LaunchScreen.storyboard in Resources */,
 				5741B468223C70080021A6B9 /* Assets.xcassets in Resources */,
 				5741B463223C70080021A6B9 /* Main.storyboard in Resources */,
@@ -159,12 +200,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57991B7C2249A779001FD45C /* DetailViewController.swift in Sources */,
 				5797D3C322404BA40071220A /* DishesTableViewController.swift in Sources */,
+				57472594224BEDD00062EF42 /* SiteViewController.swift in Sources */,
 				5741B460223C70080021A6B9 /* ViewController.swift in Sources */,
 				5779914B2243081100439B74 /* MenuTableViewController.swift in Sources */,
 				57FE8482224302B100FC758D /* AddAddressViewController.swift in Sources */,
 				5750653F223C799600162B1E /* BakeryDAO.swift in Sources */,
 				5741B45E223C70080021A6B9 /* AppDelegate.swift in Sources */,
+				5745957D2249AE9300783EFE /* MapViewController.swift in Sources */,
 				5741B466223C70080021A6B9 /* Panificadora.xcdatamodeld in Sources */,
 				57F82F8A22404A2A00056DC0 /* AddDishViewController.swift in Sources */,
 				5797D3C522404BDE0071220A /* AddBakeryViewController.swift in Sources */,
