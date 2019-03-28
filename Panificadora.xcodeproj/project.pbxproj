@@ -101,26 +101,34 @@
 		5741B45C223C70080021A6B9 /* Panificadora */ = {
 			isa = PBXGroup;
 			children = (
+				57C9E5EA224C52B800B8FC8B /* ViewControllers */,
 				5739510D2249622E00ABB74F /* assets */,
 				5741B45D223C70080021A6B9 /* AppDelegate.swift */,
 				5741B45F223C70080021A6B9 /* ViewController.swift */,
-				57991B7B2249A779001FD45C /* DetailViewController.swift */,
 				5741B461223C70080021A6B9 /* Main.storyboard */,
 				5741B467223C70080021A6B9 /* Assets.xcassets */,
 				5741B469223C70080021A6B9 /* LaunchScreen.storyboard */,
 				5741B46C223C70080021A6B9 /* Info.plist */,
 				5741B464223C70080021A6B9 /* Panificadora.xcdatamodeld */,
-				5741B472223C78EF0021A6B9 /* BakeryTableViewController.swift */,
-				5745957C2249AE9300783EFE /* MapViewController.swift */,
 				5750653E223C799600162B1E /* BakeryDAO.swift */,
+			);
+			path = Panificadora;
+			sourceTree = "<group>";
+		};
+		57C9E5EA224C52B800B8FC8B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
 				57F82F8922404A2A00056DC0 /* AddDishViewController.swift */,
 				5797D3C222404BA40071220A /* DishesTableViewController.swift */,
 				5797D3C422404BDE0071220A /* AddBakeryViewController.swift */,
 				5779914A2243081100439B74 /* MenuTableViewController.swift */,
 				57FE8481224302B100FC758D /* AddAddressViewController.swift */,
+				5741B472223C78EF0021A6B9 /* BakeryTableViewController.swift */,
+				57991B7B2249A779001FD45C /* DetailViewController.swift */,
+				5745957C2249AE9300783EFE /* MapViewController.swift */,
 				57472593224BEDD00062EF42 /* SiteViewController.swift */,
 			);
-			path = Panificadora;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

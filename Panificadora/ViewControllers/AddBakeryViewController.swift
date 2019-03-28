@@ -56,7 +56,7 @@ class AddBakeryViewController: UIViewController, UIImagePickerControllerDelegate
              bakeryDAO.addBakery(name,owner,site,street,number,dataImg)
             
         } else {
-            let alertController = UIAlertController(title: "iOScreator", message:
+            let alertController = UIAlertController(title: "Warning", message:
                 "Fill the fields correctly", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
             
