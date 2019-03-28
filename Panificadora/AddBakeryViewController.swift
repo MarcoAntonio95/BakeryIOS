@@ -8,11 +8,12 @@
 
 import UIKit
 
-class AddBakeryViewController: UIViewController {
+class AddBakeryViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var siteTF: UITextField!
     @IBOutlet weak var ownerTF: UITextField!
 
+    @IBOutlet weak var saveBT: UIBarButtonItem!
     @IBOutlet weak var photoUI: UIImageView!
     let imagePicker = UIImagePickerController()
     
@@ -31,12 +32,11 @@ class AddBakeryViewController: UIViewController {
     var city:String = String()
     var code:String = String()
     var dataImg:Data?
-    
+    var img:UIImage?
     @IBOutlet weak var addressBT: UIButton!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-       
+    super.viewDidLoad()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -48,12 +48,38 @@ class AddBakeryViewController: UIViewController {
     }
     
     @IBAction func saveBakery(_ sender: Any) {
-    dataImg = photoUI?.image?.pngData()
-        
     name = nameTF.text!
     owner = ownerTF.text!
     site = siteTF.text!
-
-    bakeryDAO.addBakery(name,owner,site,street,number)
+        
+        if name != "" && owner != "" && street != "" && dataImg != nil {
+             bakeryDAO.addBakery(name,owner,site,street,number,dataImg)
+            
+        } else {
+            let alertController = UIAlertController(title: "iOScreator", message:
+                "Fill the fields correctly", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+            
+            self.present(alertController, animated: true, completion: nil)
+        }
+        
+   
+    }
+    
+    @IBAction func selectImage(_ sender: Any) {
+        let imageController  = UIImagePickerController()
+        imageController.delegate = self
+        imageController.sourceType = .photoLibrary
+        self.present(imageController, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        img = info[UIImagePickerController.InfoKey.originalImage] as?  UIImage
+        photoUI.image = img
+         dataImg = photoUI?.image?.pngData()
+//        let imageData = img?.jpegData(compressionQuality: 1)
+//
+//        print(imageData)
+        self.dismiss(animated: true, completion: nil)
     }
 }

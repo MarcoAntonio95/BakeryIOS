@@ -25,38 +25,30 @@ class MapViewController: UIViewController {
             UIApplication.shared.beginIgnoringInteractionEvents()
             
             let activityIndicator = UIActivityIndicatorView(style: .gray)
-            
             activityIndicator.center = self.view.center
-            
             activityIndicator.hidesWhenStopped = true
-            
             activityIndicator.startAnimating()
             
             self.view.addSubview(activityIndicator)
             
             let searchRequest = MKLocalSearch.Request()
-            
             let street : String = String("\(address!.street!)")
-            
             let number : String = String("\(address!.number)")
-            
             let cep : String = String("\(address!.zip_code_cep!)")
-            
-            let local : String = String("\(street), \(number) - CEP:\(cep)")
+            let city : String = String("\(address!.city!)")
+            let local : String = String("\(street), \(number) , \(city) - CEP:\(cep)")
             
             searchRequest.naturalLanguageQuery = local
             
             let activeSearch = MKLocalSearch(request: searchRequest)
             
             activeSearch.start { (response, error) in
-                
                 activityIndicator.stopAnimating()
-                
                 UIApplication.shared.endIgnoringInteractionEvents()
                 
                 if response == nil {
                     
-                    print("ERRO")
+                    print("Error")
                     
                 }else {
                     

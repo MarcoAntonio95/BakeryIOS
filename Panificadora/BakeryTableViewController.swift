@@ -10,19 +10,11 @@ import UIKit
 
 class BakeryTableViewController: UITableViewController {
     var bakeryDAO:BakeryDAO = BakeryDAO()
-    var bakeries:[Bakery] = []
-    var bakery = Bakery()
+    var bakeries:[Bakery]!
+    var bakery : Bakery!
     var name:String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        bakeries = bakeryDAO.readBakerys()
-        
-        for n in 0...bakeries.count{
-            if n < bakeries.count-1{
-                 print(bakeries[n].name)
-            }
-        }
     }
 
     // MARK: - Table view data source
@@ -46,18 +38,27 @@ class BakeryTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        name = bakeries[indexPath.row].name!
-        bakery = bakeries[indexPath.row]
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        bakeries = bakeryDAO.readBakerys()
+        self.tableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("\(bakery)")
+        
         if segue.identifier == "segueDetail"{
             let next = segue.destination as! DetailViewController
+            name = bakeries![tableView.indexPathForSelectedRow!.row].name!
+            bakery = bakeries![tableView.indexPathForSelectedRow!.row]
             next.name = name
             next.bakery = bakery
         }
 
+    }
+       
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -66,17 +67,20 @@ class BakeryTableViewController: UITableViewController {
     }
     */
 
-    /*
+
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            var name = bakeries[indexPath.row].name!
+            bakeryDAO.deleteBakery(name)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+     
+
 
     /*
     // Override to support rearranging the table view.
@@ -103,5 +107,5 @@ class BakeryTableViewController: UITableViewController {
     }
     */
 
-}
+
 }

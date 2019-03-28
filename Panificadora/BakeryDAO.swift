@@ -30,7 +30,7 @@ class BakeryDAO {
         return bakeries
     }
 
-    func addBakery(_ name:String, _ owner:String, _ site:String, _ street:String, _ number:Int64){
+    func addBakery(_ name:String, _ owner:String, _ site:String, _ street:String, _ number:Int64, _ img:Data?){
      
         print("TA AQUI \(name) \(owner) \(site)")
         if BakeryDAO.menu.count > 0 && name != "" && owner != "" && site != "" {
@@ -38,18 +38,20 @@ class BakeryDAO {
               let bakeryAddress:Address = getAddress(street, number)
             
             if bakeryAddress.street != ""{
-            //    print("Encontrou endereco")
-                let bakery = NSEntityDescription.insertNewObject(forEntityName: "Bakery",
-                                                                 into: context)
-                bakery.setValue(name, forKey:"name")
-                bakery.setValue(menuSet, forKey: "menu")
-                bakery.setValue(owner, forKey:"owner")
-                bakery.setValue(site, forKey:"site")
-                bakery.setValue(bakeryAddress, forKey: "address")
-                do{
-                    try context.save()
-                } catch{
-                    print("Error trying save bakery: \(error)")
+                if img != nil {
+                    let bakery = NSEntityDescription.insertNewObject(forEntityName: "Bakery",
+                                                                     into: context)
+                    bakery.setValue(name, forKey:"name")
+                    bakery.setValue(menuSet, forKey: "menu")
+                    bakery.setValue(owner, forKey:"owner")
+                    bakery.setValue(site, forKey:"site")
+                    bakery.setValue(img, forKey: "photo")
+                    bakery.setValue(bakeryAddress, forKey: "address")
+                    do{
+                        try context.save()
+                    } catch{
+                        print("Error trying save bakery: \(error)")
+                    }
                 }
             }
             
@@ -89,15 +91,37 @@ class BakeryDAO {
     func resetMenu() {
      BakeryDAO.menu.removeAll()
     }
-//
-//    func editBakery(){
-//        
-//    }
-//    
-//    func deleteBakery(){
-//        
-//    }
-//    
+
+    func deleteBakery(_ name:String){
+        let requisitionRD = NSFetchRequest<NSFetchRequestResult>(entityName: "Bakery")
+        requisitionRD.predicate = NSPredicate( format: "name = %@", name)
+        
+        do{
+            let test = try! context.fetch(requisitionRD)
+            let objetcToDelete = test[0] as! NSManagedObject
+            context.delete(objetcToDelete)
+            do {
+                try context.save()
+            }
+            
+        }catch{
+            print("Error trying delete bakery: \(error)")
+        }
+    }
+
+    func readAdr(){
+        let requisitionRD = NSFetchRequest<NSFetchRequestResult>(entityName: "Address")
+        do{
+            var add = try! context.fetch(requisitionRD) as! [Address]
+            for address in add as! [Address]{
+                print("\(address.street) and bakery \(address.bakery)")
+            }
+        }catch{
+            print("Error trying read address: \(error)")
+        }
+    }
+    
+    
     func addAddress(_ street:String,_ number:Int64,_ city:String,_ code:String){
 
         let address = NSEntityDescription.insertNewObject(forEntityName: "Address",
@@ -110,7 +134,7 @@ class BakeryDAO {
         do{
             try context.save()
         } catch{
-            print("Error trying save dish: \(error)")
+            print("Error trying save addres: \(error)")
         }
     }
     
@@ -118,18 +142,12 @@ class BakeryDAO {
         let requisitionRD = NSFetchRequest<NSFetchRequestResult>(entityName: "Address")
         requisitionRD.fetchLimit = 1
         requisitionRD.returnsObjectsAsFaults = false
-//        let predicate1:NSPredicate = NSPredicate(format: "street = %@", street)
-//       let predicate:NSPredicate  = NSPredicate(format: "street = %@", street)
-//       requisitionRD.predicate = predicate
+        requisitionRD.predicate = NSPredicate(format: "street = %@", street)
     
         do{
             adresses = try! context.fetch(requisitionRD) as! [Address]
             address = adresses[0]
-//            address = try! context.fetch(requisitionRD) as! Address
-//        //actualAddress = try! context.fetch(requisitionRD) as! Address
-//        actualAddress = adresses[0]
         
-            
         }catch{
             print("Error trying load dishes: \(error)")
         }
