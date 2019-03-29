@@ -71,8 +71,8 @@ class BakeryTableViewController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            var name = bakeries[indexPath.row].name!
+            let name = bakeries[indexPath.row].name!
+            bakeries.remove(at: indexPath.row)
             bakeryDAO.deleteBakery(name)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {

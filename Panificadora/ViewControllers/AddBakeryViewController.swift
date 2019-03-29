@@ -54,7 +54,7 @@ class AddBakeryViewController: UIViewController, UIImagePickerControllerDelegate
         
         if name != "" && owner != "" && street != "" && dataImg != nil {
              bakeryDAO.addBakery(name,owner,site,street,number,dataImg)
-            
+            self.navigationController?.popViewController(animated: true)
         } else {
             let alertController = UIAlertController(title: "Warning", message:
                 "Fill the fields correctly", preferredStyle: .alert)
@@ -77,9 +77,6 @@ class AddBakeryViewController: UIViewController, UIImagePickerControllerDelegate
         img = info[UIImagePickerController.InfoKey.originalImage] as?  UIImage
         photoUI.image = img
          dataImg = photoUI?.image?.pngData()
-//        let imageData = img?.jpegData(compressionQuality: 1)
-//
-//        print(imageData)
         self.dismiss(animated: true, completion: nil)
     }
 }

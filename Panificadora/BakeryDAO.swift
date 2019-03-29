@@ -32,9 +32,7 @@ class BakeryDAO {
 
     func addBakery(_ name:String, _ owner:String, _ site:String, _ street:String, _ number:Int64, _ img:Data?){
      
-        print("TA AQUI \(name) \(owner) \(site)")
         if BakeryDAO.menu.count > 0 && name != "" && owner != "" && site != "" {
-           // print("TA DENTRO")
               let bakeryAddress:Address = getAddress(street, number)
             
             if bakeryAddress.street != ""{
